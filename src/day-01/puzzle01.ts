@@ -21,4 +21,10 @@ export const day01CountCalories = () => {
   // get the highest value in elfes array
   const highestCalories = Math.max(...elfes);
   console.log("highestCalories", highestCalories);
+  let sortedElfes = elfes.sort((a, b) => b - a);
+  console.log("sortedElfes", sortedElfes);
+  const topThreeElfes = sortedElfes.slice(0, 3);
+  const topThreeElfesSum = topThreeElfes.reduce((a, b) => a + b, 0);
+  console.log("topThreeElfesSum", topThreeElfesSum);
+  console.log("topThreeElfes", topThreeElfes);
 };
