@@ -1,5 +1,6 @@
 import { day0Challenge } from "./00";
 import { day01CountCalories } from "./day-01/puzzle01";
+import { day02RPS } from "./day-02/puzzle01";
 import { drawAChristmasTree } from "./helpers/drawTree";
 const args = process.argv;
 
@@ -12,8 +13,9 @@ const initAdventOfCode = () => {
     case "1":
       day01CountCalories();
       break;
-      console.log("Day 2");
-
+    case "2":
+      day02RPS();
+      break;
     default:
       console.log("Day 1");
   }
