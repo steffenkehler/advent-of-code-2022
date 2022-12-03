@@ -80,7 +80,7 @@ export const day02RPS = () => {
       ) {
         const result = extraPoints[results[`${playerInput}${opponentInput}`]];
         const p2Result = extraPoints[results[`${p2Input}${opponentInput}`]];
-        totalPlayerScorePuzzle2 += result + p2Result;
+        totalPlayerScorePuzzle2 += points[p2Input] + p2Result;
         totalPlayerScore += points[playerInput] + result;
       }
     }
