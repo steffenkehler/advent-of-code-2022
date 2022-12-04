@@ -14,8 +14,8 @@ export const day04Cleanup = () => {
   }
   data.pop();
   let uselessElfes = 0;
+  let overlappingElfes = 0;
   data.forEach((line: string, index: number) => {
-    console.log(index, line);
     const [firstElf, secondElf] = line.split(",");
     const [firstStart, firstEnd] = firstElf.split("-").map((x) => parseInt(x));
     const [secondStart, secondEnd] = secondElf
@@ -27,6 +27,17 @@ export const day04Cleanup = () => {
     ) {
       uselessElfes += 1;
     }
+    // get the all elfes that are overlapping
+    if (
+      firstEnd < secondStart ||
+      secondEnd < firstStart ||
+      secondStart > firstEnd
+    ) {
+      // no overlap
+    } else {
+      overlappingElfes += 1;
+    }
   });
   console.log("uselessElfes", uselessElfes);
+  console.log("overlappingElfes", overlappingElfes);
 };
