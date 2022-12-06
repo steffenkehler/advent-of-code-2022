@@ -6,8 +6,8 @@ export const day05SupplyStacks = () => {
     .toString()
     .split("\n");
   data.pop();
-  const stacks: any[] = [];
-  const stacks9001: any[] = [];
+  const stacks: any[][] = [];
+  const stacks9001: any[][] = [];
   data.forEach((line: string, index: number) => {
     // first ten lines are the rules
     if (index < 8) {
@@ -38,9 +38,11 @@ export const day05SupplyStacks = () => {
           stacks9001[fromStack].length - amount
         );
         for (let i = 0; i < amount; i++) {
-          const topCard = stacks[fromStack].pop();
-          stacks9001[fromStack].pop();
-          stacks[toStack] = [...stacks[toStack], topCard];
+          if (stacks9001[fromStack].length > 0) {
+            const topCard = stacks[fromStack].pop();
+            stacks9001[fromStack].pop();
+            stacks[toStack] = [...stacks[toStack], topCard];
+          }
         }
         // part 2
 
@@ -50,10 +52,15 @@ export const day05SupplyStacks = () => {
   });
   console.log(
     "Puzzle 01 Solution is: ",
-    stacks.map((stack) => stack.pop()).reduce((acc, curr) => acc + curr, "")
+    stacks
+      .map((stack: string[]) => stack.pop())
+      .reduce((acc: any, curr: any) => acc + curr, "")
   );
+  console.log(stacks);
   console.log(
     "Puzzle 02 Solution is: ",
-    stacks9001.map((stack) => stack.pop()).reduce((acc, curr) => acc + curr, "")
+    stacks9001
+      .map((stack: string[]) => stack.pop())
+      .reduce((acc: any, curr: any) => acc + curr, "")
   );
 };

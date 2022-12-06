@@ -4,6 +4,7 @@ import { day02RPS } from "./day-02/puzzle01";
 import { day03Rucksack } from "./day-03/puzzle01";
 import { day04Cleanup } from "./day-04/puzzle01";
 import { day05SupplyStacks } from "./day-05/puzzle01";
+import { day06TurningTrouble } from "./day-06/puzzle01";
 import { drawAChristmasTree } from "./helpers/drawTree";
 const args = process.argv;
 
@@ -28,6 +29,8 @@ const initAdventOfCode = () => {
     case "5":
       day05SupplyStacks();
       break;
+    case "6":
+      day06TurningTrouble();
     default:
       console.log("Day 1");
   }
