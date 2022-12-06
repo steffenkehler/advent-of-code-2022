@@ -6,7 +6,7 @@ export const day06TurningTrouble = () => {
     .toString();
   console.log(data);
   // find four different characters in a row in data string and return the index of the last one
-  const findFourInARow = (data: string) => {
+  const findNInARow = (data: string, inRow: number) => {
     let index = 0;
     const sequence: string[] = [];
     while (index < data.length) {
@@ -24,7 +24,7 @@ export const day06TurningTrouble = () => {
         console.log("sequence", sequence, "already contains", data[index]);
       }
       const checkSequence = new Set(sequence);
-      if (checkSequence.size === 4) {
+      if (checkSequence.size === inRow) {
         console.log(sequence);
         return index + 1;
       }
@@ -32,6 +32,6 @@ export const day06TurningTrouble = () => {
     }
     return -1;
   };
-  console.log("Puzzle 01 Solution is: ", findFourInARow(data));
-  console.log("Puzzle 02 Solution is: ");
+  console.log("Puzzle 01 Solution is: ", findNInARow(data, 4));
+  console.log("Puzzle 02 Solution is: ", findNInARow(data, 14));
 };
